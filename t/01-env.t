@@ -1,4 +1,4 @@
-use Test::More tests; # -*- mode: cperl -*-
+use Test::More; # -*- mode: cperl -*-
 
 use lib qw(lib ../lib);
 
