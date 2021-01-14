@@ -34,9 +34,8 @@ jobs:
           use GitHub::Actions;
           set_output( 'FOO', 'BAR');
       - name: Check test result
-        with:
-          env:
-            OUTPUT_FOO: ${{ steps.output_test.outputs.FOO }}
+        env:
+          OUTPUT_FOO: ${{ steps.output_test.outputs.FOO }}
         run: |
           if [[ "${OUTPUT_FOO}" == 'BAR' ]]; then
              echo "✓"
