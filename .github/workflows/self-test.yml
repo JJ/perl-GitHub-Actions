@@ -1,5 +1,5 @@
 name: "Checks the github action using itself"
-on: [push, pull_request]
+on: push
 
 jobs:
   self_check:
