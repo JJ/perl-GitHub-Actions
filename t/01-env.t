@@ -10,7 +10,7 @@ BEGIN {
 use GitHub::Actions;
 
 for my $k (qw( foo bar ) ) {
-  is( eval( "\$GitHub::Actions::".$k ), $k, "Key «$k» set" );
+  is( $github{uc($k)}, $k, "Key «$k» set" );
 }
 
 

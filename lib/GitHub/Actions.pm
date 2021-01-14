@@ -1,21 +1,23 @@
 package GitHub::Actions;
 
-use Exporter;
+use Exporter 'import';
 use warnings;
 use strict;
 use Carp;
 
 use v5.14;
 
-our @EXPORT;
+our %github;
+
+our @EXPORT = qw( %github );
+
 BEGIN {
   for my $k ( keys(%ENV) ) {
     if ( $k =~ /^GITHUB_/ ) {
       my ($nogithub) = ( $k =~ /^GITHUB_(\w+)/ );
-      eval( "our \$".lc($nogithub)." = '".$ENV{$k}."'" );
+      $github{$nogithub} = $ENV{$k} ;
     }
   }
-  
 }
 use version; our $VERSION = qv('0.0.3');
 
