@@ -16,31 +16,30 @@ jobs:
         run: make test
       - name: Test env variables
         shell: perl {0}
-        run:
+        run: |
           use GitHub::Actions;
           set_env( 'FOO', 'BAR');
       - name: Check test result
         run: |
-          if [[ "${FOO}" == 'BAR' ]]; then
+          if [[ "${FOO}" == "BAR" ]]; then
              echo "✓"
           else
              exit 1
           fi
-       - name: Test output
-         id: output_test
-         shell: perl {0}
-         run:
-           use GitHub::Actions;
-           set_output( 'FOO', 'BAR');
-        - name: Check test result
-          with:
-            env:
-              OUTPUT_FOO: ${{ steps.output_test.outputs.FOO }}
-          run: |
+
+      - name: Test output
+        id: output_test
+        shell: perl {0}
+        run:
+          use GitHub::Actions;
+          set_output( 'FOO', 'BAR');
+      - name: Check test result
+        with:
+          env:
+            OUTPUT_FOO: ${{ steps.output_test.outputs.FOO }}
+        run: |
           if [[ "${OUTPUT_FOO}" == 'BAR' ]]; then
              echo "✓"
           else
              exit 1
           fi
-
-
