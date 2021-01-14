@@ -3,10 +3,7 @@ on: push
 
 jobs:
   self_check:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [macos-latest, windows-latest, ubuntu-latest]
+    runs-on: ubuntu-latest
     steps:
       - name: checkout
         uses: actions/checkout@v2
