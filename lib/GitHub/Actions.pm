@@ -10,7 +10,7 @@ use v5.14;
 # Module implementation here
 our %github;
 
-our @EXPORT = qw( %github );
+our @EXPORT = qw( %github set_output set_env);
 
 BEGIN {
   for my $k ( keys(%ENV) ) {
