@@ -7,12 +7,12 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
-      - name: Package install
-        run: sudo apt-get install cpanminus
       - name: Prepare for tests
         run: |
-          cpanm --installdeps .
+          sudo cpan Test::Perl::Critic
           perl Makefile.PL
+          make
+          sudo make install
       - name: Perform tests
         run: make test
 
