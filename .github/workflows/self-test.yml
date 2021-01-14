@@ -8,7 +8,9 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
       - name: Prepare for tests
-        run: perl Makefile.PL
+        run: |
+          cpanm --installdeps .
+          perl Makefile.PL
       - name: Perform tests
         run: make test
         
