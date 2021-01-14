@@ -20,7 +20,7 @@ BEGIN {
     }
   }
 }
-use version; our $VERSION = qv('0.0.4');
+use version; our $VERSION = qv('0.0.5');
 
 sub set_output {
   carp "Need name and value" unless @_;
