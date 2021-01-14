@@ -9,10 +9,9 @@ jobs:
         uses: actions/checkout@v2
       - name: Prepare for tests
         run: |
-          sudo cpan Test::Perl::Critic
+          sudo apt-get install libtest-perl-critic-perl
           perl Makefile.PL
           make
-          sudo make install
       - name: Perform tests
         run: make test
 
