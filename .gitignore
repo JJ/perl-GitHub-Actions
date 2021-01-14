@@ -2,3 +2,4 @@
 MYMETA*
 blib/
 pm_to_blib
+*.tar.gz
