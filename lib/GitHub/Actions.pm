@@ -29,7 +29,7 @@ sub set_output {
 
 sub set_env {
   my ($env_var_name, $env_var_value) = @_;
-  open(my $fh, '>>', $github{$env) or die "Could not open file $github{$env) $!" );
+  open(my $fh, '>>', $github{'ENV'}) or die "Could not open file ". $github{'ENV'} ." $!";
   say $fh "$env_var_name=$env_var_value";
   close $fh;
 }
