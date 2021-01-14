@@ -17,8 +17,8 @@
 #     CONFIGURE_REQUIRES => {  }
 #     NAME => q[GitHub::Actions]
 #     PL_FILES => {  }
-#     PREREQ_PM => { Test::More=>q[0], Test::Perl::Critic=>q[0], version=>q[0] }
-#     TEST_REQUIRES => { Test::Perl::Critic=>q[0] }
+#     PREREQ_PM => { Test::More=>q[0], Test::Output=>q[0], Test::Perl::Critic=>q[0], version=>q[0] }
+#     TEST_REQUIRES => { Test::Output=>q[0], Test::Perl::Critic=>q[0] }
 #     VERSION_FROM => q[lib/GitHub/Actions.pm]
 #     clean => { FILES=>q[GitHub-Actions-*] }
 #     dist => { COMPRESS=>q[gzip -9f], SUFFIX=>q[gz] }
@@ -492,6 +492,7 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '  - '\''JJ Merelo <jmerelo@CPAN.org>'\''' >> META_new.yml
 	$(NOECHO) $(ECHO) 'build_requires:' >> META_new.yml
 	$(NOECHO) $(ECHO) '  ExtUtils::MakeMaker: '\''0'\''' >> META_new.yml
+	$(NOECHO) $(ECHO) '  Test::Output: '\''0'\''' >> META_new.yml
 	$(NOECHO) $(ECHO) '  Test::Perl::Critic: '\''0'\''' >> META_new.yml
 	$(NOECHO) $(ECHO) 'configure_requires:' >> META_new.yml
 	$(NOECHO) $(ECHO) '  ExtUtils::MakeMaker: '\''0'\''' >> META_new.yml
@@ -553,6 +554,7 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '      },' >> META_new.json
 	$(NOECHO) $(ECHO) '      "test" : {' >> META_new.json
 	$(NOECHO) $(ECHO) '         "requires" : {' >> META_new.json
+	$(NOECHO) $(ECHO) '            "Test::Output" : "0",' >> META_new.json
 	$(NOECHO) $(ECHO) '            "Test::Perl::Critic" : "0"' >> META_new.json
 	$(NOECHO) $(ECHO) '         }' >> META_new.json
 	$(NOECHO) $(ECHO) '      }' >> META_new.json

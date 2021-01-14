@@ -24,7 +24,7 @@ use version; our $VERSION = qv('0.0.3');
 
 sub set_output {
   my ($output_name, $output_value) = @_;
-  say "::set-output name=$output_name::$output_value";
+  say "::set-output name=$output_name\::$output_value";
 }
 
 sub set_env {
