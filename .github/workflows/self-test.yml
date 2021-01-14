@@ -14,6 +14,8 @@ jobs:
           make
       - name: Perform tests
         run: make test
+      - name: Install for the rest of the tests
+        run: sudo make install
       - name: Test env variables
         shell: perl {0}
         run: |
