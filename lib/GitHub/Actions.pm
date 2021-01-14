@@ -7,6 +7,7 @@ use Carp;
 
 use v5.14;
 
+# Module implementation here
 our %github;
 
 our @EXPORT = qw( %github );
@@ -21,14 +22,17 @@ BEGIN {
 }
 use version; our $VERSION = qv('0.0.3');
 
-# Other recommended modules (uncomment to use):
-#  use IO::Prompt;
-#  use Perl6::Export;
-#  use Perl6::Slurp;
-#  use Perl6::Say;
+sub set_output {
+  my ($output_name, $output_value) = @_;
+  say "::set-output name=$output_name::$output_value";
+}
 
-
-# Module implementation here
+sub set_env {
+  my ($env_var_name, $env_var_value) = @_;
+  open(my $fh, '>>', $github{$env) or die "Could not open file $github{$env) $!" );
+  say $fh "$env_var_name=$env_var_value";
+  close $fh;
+}
 
 
 "Action!"; # Magic true value required at end of module

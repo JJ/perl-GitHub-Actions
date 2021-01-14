@@ -14,4 +14,16 @@ jobs:
           make
       - name: Perform tests
         run: make test
+      - name: Test env variables
+        shell: perl {0}
+        run:
+          use GitHub::Actions;
+          set_env( 'FOO', 'BAR');
+      - name: Check test result
+        run: |
+          if [[ "${FOO}" == 'BAR' ]]; then
+             echo "✓"
+          else
+             exit 1
+
 
