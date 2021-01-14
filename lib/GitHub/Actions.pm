@@ -10,7 +10,7 @@ use v5.14;
 # Module implementation here
 our %github;
 
-our @EXPORT = qw( %github set_output set_env);
+our @EXPORT = qw( %github set_output set_env debug);
 
 BEGIN {
   for my $k ( keys(%ENV) ) {
@@ -36,6 +36,10 @@ sub set_env {
   close $fh;
 }
 
+sub debug {
+  my $debug_message = shift;
+  say "::debug::$debug_message";
+}
 
 "Action!"; # Magic true value required at end of module
 __END__
@@ -104,6 +108,10 @@ This is equivalent to L<setting an environment variable|https://docs.github.com/
 =head2 set_output( $output_name, $output_value)
 
 Equivalent to L<C<set_output>|https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-commands-for-github-actions#setting-an-output-parameter>
+
+=head2 debug( $debug_message );
+
+Equivalent to L<C<debug>|https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-commands-for-github-actions#setting-a-debug-message>
 
 =head1 CONFIGURATION AND ENVIRONMENT
 
