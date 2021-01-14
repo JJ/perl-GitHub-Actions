@@ -20,10 +20,12 @@ BEGIN {
     }
   }
 }
-use version; our $VERSION = qv('0.0.3');
+use version; our $VERSION = qv('0.0.4');
 
 sub set_output {
+  carp "Need name and value" unless @_;
   my ($output_name, $output_value) = @_;
+  $output_value ||='';
   say "::set-output name=$output_name\::$output_value";
 }
 
@@ -64,7 +66,7 @@ This document describes GitHub::Actions version 0.0.3
     # Set environment variable value
     set_env("FOO", "BAR");
 
-Install this action within a GitHub action
+Install this module within a GitHub action
 
       . name: "Install GitHub::Actions"
         run: sudo cpan GitHub::Actions

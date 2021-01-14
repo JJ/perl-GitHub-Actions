@@ -11,5 +11,10 @@ sub setting_output {
 
 stdout_is(\&setting_output,"::set-output name=FOO::BAR\n", "Sets output" );
 
+sub setting_empty_output {
+  set_output('FOO');
+}
+
+stdout_is(\&setting_empty_output,"::set-output name=FOO::\n", "Sets output with empty value" );
 
 done_testing;
