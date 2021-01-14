@@ -16,7 +16,7 @@ for my $k (qw( foo bar ) ) {
 if ( $ENV{CI} ) { # We're in an actual Github Action
   is( $github{'ACTOR'}, 'JJ', 'Action run by us' );
   for my $n (qw(RUN_ID RUN_NUMBER) ) {
-    like( $n, /\d+/, 'Run-related numbers are numbers' );
+    like( $n, qr/\d+/, 'Run-related numbers are numbers' );
   }
 }
 
