@@ -10,7 +10,7 @@ use v5.14;
 # Module implementation here
 our %github;
 
-our @EXPORT = qw( %github set_output set_env debug);
+our @EXPORT = qw( %github set_output set_env debug error set_failed);
 
 BEGIN {
   for my $k ( keys(%ENV) ) {
@@ -39,6 +39,23 @@ sub set_env {
 sub debug {
   my $debug_message = shift;
   say "::debug::$debug_message";
+}
+
+sub error {
+  my $error_message = shift;
+  my ($file, $line, $col ) = @_;
+  my $message = "::error";
+  my @data;
+  push( @data, "file=$file") if $file;
+  push( @data, "line=$line") if $line;
+  push( @data, "col=$col") if $col;
+  $message .= " ".join(",", @data ) if @data;
+  say "$message::$error_message"
+}
+
+sub set_failed {
+  error( @_ );
+  exit( 1);
 }
 
 "Action!"; # Magic true value required at end of module

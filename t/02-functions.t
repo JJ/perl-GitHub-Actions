@@ -23,4 +23,11 @@ sub setting_debug {
 
 stdout_is(\&setting_debug,"::debug::FOO\n", "Sets output with empty value" );
 
+sub setting_error {
+  error('FOO');
+}
+
+stdout_is(\&setting_error,"::error::FOO\n", "Sets error with empty value" );
+
+
 done_testing;
