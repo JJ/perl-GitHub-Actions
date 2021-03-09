@@ -43,3 +43,5 @@ jobs:
           else
              exit 1
           fi
+      - name: Save last GitHub action ID
+        run: echo $GITHUB_ACTION >> last_github_action_id
