@@ -43,6 +43,11 @@ sub debug {
 
 sub error {
   my $error_message = shift;
+  say "::error::$error_message"
+}
+
+sub error_on_file {
+  my $error_message = shift;
   my ($file, $line, $col ) = @_;
   my $message = "::error";
   say "Message so far $message";
@@ -136,6 +141,10 @@ Equivalent to L<C<debug>|https://docs.github.com/en/free-pro-team@latest/actions
 =head2 error( $error_message )
 
 Equivalent to L<C<error>|https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-commands-for-github-actions#setting-an-error-message>, prints an error message.
+
+=head2 error_on_file( $error_message, $file, $line, $col )
+
+Equivalent to L<C<error>|https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-commands-for-github-actions#setting-an-error-message>, prints an error message with file and line info
 
 =head2 set_failed( $error_message )
 
