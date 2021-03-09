@@ -126,9 +126,18 @@ This is equivalent to L<setting an environment variable|https://docs.github.com/
 
 Equivalent to L<C<set_output>|https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-commands-for-github-actions#setting-an-output-parameter>
 
-=head2 debug( $debug_message );
+=head2 debug( $debug_message )
 
 Equivalent to L<C<debug>|https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-commands-for-github-actions#setting-a-debug-message>
+
+=head2 error( $error_message )
+
+Equivalent to L<C<error>|https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-commands-for-github-actions#setting-an-error-message>, prints an error message.
+
+=head2 set_failed( $error_message )
+
+Exits with an error status of 1 after setting the error message.
+
 
 =head1 CONFIGURATION AND ENVIRONMENT
 
