@@ -45,11 +45,13 @@ sub error {
   my $error_message = shift;
   my ($file, $line, $col ) = @_;
   my $message = "::error";
-  my @data;
-  push( @data, "file=$file") if $file;
-  push( @data, "line=$line") if $line;
-  push( @data, "col=$col") if $col;
-  ($message .= " ".join(",", @data ) ) if @data;
+  if ( $file ) {
+    my @data;
+    push( @data, "file=$file") if $file;
+    push( @data, "line=$line") if $line;
+    push( @data, "col=$col") if $col;
+    $message .= " ".join(",", @data );
+  }
   say "$message::$error_message"
 }
 
