@@ -45,6 +45,7 @@ sub error {
   my $error_message = shift;
   my ($file, $line, $col ) = @_;
   my $message = "::error";
+  say "Message so far $message";
   if ( $file ) {
     my @data;
     push( @data, "file=$file") if $file;
