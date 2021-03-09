@@ -49,7 +49,7 @@ sub error {
   push( @data, "file=$file") if $file;
   push( @data, "line=$line") if $line;
   push( @data, "col=$col") if $col;
-  $message .= " ".join(",", @data ) if @data;
+  ($message .= " ".join(",", @data ) ) if @data;
   say "$message::$error_message"
 }
 

@@ -27,7 +27,7 @@ sub setting_error {
   error('FOO');
 }
 
-stdout_is(\&setting_error,"::error::FOO\n", "Sets error with empty value" );
+stdout_is(\&setting_error,"::error::FOO\n", "Sets error with FOO value" );
 
 
 done_testing;
