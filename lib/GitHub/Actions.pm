@@ -82,7 +82,7 @@ This document describes GitHub::Actions version 0.0.3
 =head1 SYNOPSIS
 
     use GitHub::Actions;
-    use v5,14;
+    use v5.14;
 
     # %github contains all GITHUB_* environment variables
     for my $g (keys %github ) {
