@@ -15,10 +15,10 @@ for my $k (qw( foo bar ) ) {
 
 if ( $ENV{CI} ) { # We're in an actual Github Action
   is( $github{'ACTOR'}, $ENV{'GITHUB_ACTOR'}, 'Action run by us' );
-  is( $github{'EVENT_NAME'}, 'push', "Activated by push" );
+  like( $github{'EVENT_NAME'}, qr{^(push|pull_request)$}, "Activated by push or pull_request" );
   is( $github{'REPOSITORY'}, $ENV{'GITHUB_REPOSITORY'}, 'We are in the correct repository' );
   is( $github{'REF'}, $ENV{GITHUB_REF}, 'We are in the right branch' );
-  like( $github{'REF'}, qr{^refs/heads/\w+}, 'We are in the correct branch' );
+  like( $github{'REF'}, qr{^refs/(heads/\w+|pull/\d+/merge)$}, 'We are in the correct branch' );
   is( $github{'SERVER_URL'}, 'https://github.com', 'We are in the correct server' );
   for my $n (qw(RUN_ID RUN_NUMBER) ) {
     like( $github{$n}, qr/\d+/, 'Run-related numbers are numbers' );
