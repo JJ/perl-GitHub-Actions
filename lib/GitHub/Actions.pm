@@ -183,7 +183,7 @@ Please report any bugs or feature requests to L<https://github.com/JJ/perl-GitHu
 
 =head1 AUTHOR
 
-JJ Merelo  C<< <jmerelo@CPAN.org> >>
+JJ Merelo  C<< <jmerelo@CPAN.org> >>. Many thanks to RENEEB and Gabor Szabo for their help with test and metadata.
 
 
 =head1 LICENCE AND COPYRIGHT
