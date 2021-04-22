@@ -17,11 +17,12 @@ jobs:
       - name: Install for the rest of the tests
         run: sudo make install
       - name: Test env variables
+        continue-on-error: true
         run: |
           .github/workflows/set_failed.pl
           echo ::set-output name=exit_code::$?
       - name: Check exit code is correct
-        if: failure() && steps.build.outputs.exit_code == 1
+        if: ${{ failure() }} && steps.build.outputs.exit_code == 1
         shell: perl {0}
         run: |
           set_output( "set_failed works");
