@@ -20,5 +20,5 @@ jobs:
         shell: perl {0}
         run: |
           use GitHub::Actions;
-          set_failed( 'Bad, very bad again');
+          set_failed( 'This error is expected as we are checking that set_failed really works.');
 
