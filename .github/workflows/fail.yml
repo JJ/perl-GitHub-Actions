@@ -1,0 +1,24 @@
+name: "Checks the github action using itself"
+on: [push,pull_request]
+
+jobs:
+  self_check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: Prepare for tests
+        run: |
+          sudo apt-get install libtest-perl-critic-perl libtest-output-perl libtest-pod-coverage-perl
+          perl Makefile.PL
+          make
+      - name: Perform tests
+        run: make test
+      - name: Install for the rest of the tests
+        run: sudo make install
+      - name: Test env variables
+        shell: perl {0}
+        run: |
+          use GitHub::Actions;
+          set_failed( 'Bad, very bad');
+
