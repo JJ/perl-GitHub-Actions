@@ -52,3 +52,10 @@ jobs:
           EMAIL: jjmerelo@gmail.com
           MY_COMMIT_MSG: Updates GH id file
         run: bin/commit-push.pl
+
+      - name: Test env variables
+        shell: perl {0}
+        run: |
+          use GitHub::Actions;
+          system(".github/workflows/set_failed.pl");
+          set_output( "Exit code is $?" );
