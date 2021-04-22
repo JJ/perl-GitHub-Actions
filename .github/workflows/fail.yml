@@ -1,8 +1,8 @@
-name: "Checks the github action using itself"
+name: "Checks the github action this job should fail"
 on: [push,pull_request]
 
 jobs:
-  self_check:
+  self_check_expected_to_fail:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -20,5 +20,5 @@ jobs:
         shell: perl {0}
         run: |
           use GitHub::Actions;
-          set_failed( 'Bad, very bad');
+          set_failed( 'Bad, very bad again');
 
