@@ -53,7 +53,7 @@ jobs:
           MY_COMMIT_MSG: Updates GH id file
         run: bin/commit-push.pl
 
-      - name: Test env variables
+      - name: Test set_failed
         shell: perl {0}
         run: |
           use GitHub::Actions;
