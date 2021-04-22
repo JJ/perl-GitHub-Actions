@@ -4,6 +4,7 @@ on: [push,pull_request]
 jobs:
   self_check_expected_to_fail:
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - name: checkout
         uses: actions/checkout@v2
@@ -17,7 +18,6 @@ jobs:
       - name: Install for the rest of the tests
         run: sudo make install
       - name: Test env variables
-        continue-on-error: true
         run: |
           .github/workflows/set_failed.pl
           echo ::set-output name=exit_code::$?
