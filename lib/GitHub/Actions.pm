@@ -1,6 +1,6 @@
 package GitHub::Actions;
 
-use Exporter 'import';
+use Exporter 'import'; # needed to use @EXPORT
 use warnings;
 use strict;
 use Carp;
@@ -20,6 +20,7 @@ BEGIN {
     }
   }
 }
+
 use version; our $VERSION = qv('0.0.6');
 
 sub set_output {
@@ -59,6 +60,24 @@ sub error_on_file {
     $message .= " ".join(",", @data );
   }
   say "$message::$error_message"
+}
+
+sub warning_on_file {
+  command_on_file( "::warning", @_ );
+}
+
+sub command_on_file {
+  my $command = shift;
+  my $message = shift;
+  my ($file, $line, $col ) = @_;
+  if ( $file ) {
+    my @data;
+    push( @data, "file=$file");
+    push( @data, "line=$line") if $line;
+    push( @data, "col=$col") if $col;
+    $command .= " ".join(",", @data );
+  }
+  say "$command::$message"
 }
 
 sub set_failed {
