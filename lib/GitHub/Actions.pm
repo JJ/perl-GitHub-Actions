@@ -47,6 +47,11 @@ sub error {
   say "::error::$error_message"
 }
 
+sub warning {
+  my $warning = shift;
+  say "::warning::$warning"
+}
+
 sub error_on_file {
   command_on_file( "::error", @_ );
 }
