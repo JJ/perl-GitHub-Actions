@@ -150,9 +150,21 @@ Equivalent to L<C<debug>|https://docs.github.com/en/free-pro-team@latest/actions
 
 Equivalent to L<C<error>|https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-commands-for-github-actions#setting-an-error-message>, prints an error message.
 
+=head2 warning( $warning_message )
+
+Equivalent to L<C<warning>|https://docs.github.com/en/actions/reference/workflow-commands-for-github-actions#setting-a-warning-message>, simply prints a warning.
+
+=head2 command_on_file( $error_message, $file, $line, $col )
+
+Common code for L<error_on_file> and L<warning_on_file>. Can be used for any future commands.
+
 =head2 error_on_file( $error_message, $file, $line, $col )
 
 Equivalent to L<C<error>|https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-commands-for-github-actions#setting-an-error-message>, prints an error message with file and line info
+
+=head2 warning_on_file( $warning_message, $file, $line, $col )
+
+Equivalent to L<C<warning>|https://docs.github.com/en/actions/reference/workflow-commands-for-github-actions#setting-a-warning-message>, prints an warning with file and line info.
 
 =head2 set_failed( $error_message )
 
