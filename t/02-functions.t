@@ -39,4 +39,9 @@ sub setting_error_on_file {
 }
 stdout_is(\&setting_error_on_file,"::error file=foo.pl,line=1,col=1::FOO\n", "Sets error with FOO value" );
 
+sub setting_warning_on_file {
+  warning_on_file('FOO', 'foo.pl', 1,1 );
+}
+stdout_is(\&setting_warning_on_file,"::warning file=foo.pl,line=1,col=1::FOO\n", "Sets error with FOO value" );
+
 done_testing;
