@@ -74,6 +74,14 @@ sub command_on_file {
   say $command."::$message"
 }
 
+sub start_group {
+  say "::group::" + shift;
+}
+
+sub end_group {
+  say "::endgroup::";
+}
+
 sub set_failed {
   error( @_ );
   exit( 1);
@@ -175,6 +183,13 @@ Equivalent to L<C<warning>|https://docs.github.com/en/actions/reference/workflow
 
 Exits with an error status of 1 after setting the error message.
 
+=head2 start_group( $group_name )
+
+Starts a group in the logs, grouping the following messages. Corresponds to L<C<group>|https://docs.github.com/en/actions/reference/workflow-commands-for-github-actions#grouping-log-lines>.
+
+=head2 end_group
+
+Ends current log grouping.
 
 =head1 CONFIGURATION AND ENVIRONMENT
 
