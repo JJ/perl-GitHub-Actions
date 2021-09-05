@@ -71,7 +71,7 @@ sub command_on_file {
     push( @data, "col=$col") if $col;
     $command .= " ".join(",", @data );
   }
-  say "$command::$message"
+  say $command."::$message"
 }
 
 sub set_failed {
