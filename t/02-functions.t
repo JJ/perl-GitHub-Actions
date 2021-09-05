@@ -29,6 +29,11 @@ sub setting_error {
 
 stdout_is(\&setting_error,"::error::FOO\n", "Sets error with FOO value" );
 
+sub setting_command_on_file {
+  command_on_file('::bar', 'FOO', 'foo.pl', 1,1 );
+}
+stdout_is(\&setting_command_on_file,"::bar file=foo.pl,line=1,col=1::FOO\n", "Sets error with FOO value" );
+
 sub setting_error_on_file {
   error_on_file('FOO', 'foo.pl', 1,1 );
 }

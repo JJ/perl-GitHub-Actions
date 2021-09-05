@@ -10,7 +10,7 @@ use v5.14;
 # Module implementation here
 our %github;
 
-our @EXPORT = qw( %github set_output set_env debug error warning set_failed error_on_file warning_on_file );
+our @EXPORT = qw( %github set_output set_env debug error warning set_failed command_on_file error_on_file warning_on_file );
 
 BEGIN {
   for my $k ( keys(%ENV) ) {
@@ -48,17 +48,7 @@ sub error {
 }
 
 sub error_on_file {
-  my $error_message = shift;
-  my ($file, $line, $col ) = @_;
-  my $message = "::error";
-  if ( $file ) {
-    my @data;
-    push( @data, "file=$file");
-    push( @data, "line=$line") if $line;
-    push( @data, "col=$col") if $col;
-    $message .= " ".join(",", @data );
-  }
-  say "$message::$error_message"
+  command_on_file( "::error", @_ );
 }
 
 sub warning_on_file {
