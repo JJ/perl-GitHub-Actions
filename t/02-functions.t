@@ -30,9 +30,8 @@ sub setting_error {
 stdout_is(\&setting_error,"::error::FOO\n", "Sets error with FOO value" );
 
 sub setting_error_on_file {
-  error('FOO', 'foo.pl', 1,1 );
+  error_on_file('FOO', 'foo.pl', 1,1 );
 }
-error('FOO', 'foo.pl', 1,1 );
-stdout_is(\&setting_error_on_file,"::error::FOO\n", "Sets error with FOO value" );
+stdout_is(\&setting_error_on_file,"::error file=foo.pl,line=1,col=1::FOO\n", "Sets error with FOO value" );
 
 done_testing;
