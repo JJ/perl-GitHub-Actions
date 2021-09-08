@@ -17,6 +17,14 @@ To install this module, run the following commands:
 None.
 
 
+## HOW TO
+
+After installation, use `perldoc GitHub::Actions` for the commands available
+(generally a camel_cased version of the corresponding GitHub Action commands).
+
+If you want to use this inside a GitHub action, you will have to use fatpack to
+create a single command.
+
 ## COPYRIGHT AND LICENCE
 
 Copyright (C) 2021, JJ Merelo
