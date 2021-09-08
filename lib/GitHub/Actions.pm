@@ -10,7 +10,7 @@ use v5.14;
 # Module implementation here
 our %github;
 
-our @EXPORT = qw( %github set_output set_env debug error warning set_failed command_on_file error_on_file warning_on_file );
+our @EXPORT = qw( %github set_output set_env debug error warning set_failed command_on_file error_on_file warning_on_file start_group end_group);
 
 BEGIN {
   for my $k ( keys(%ENV) ) {
@@ -75,7 +75,7 @@ sub command_on_file {
 }
 
 sub start_group {
-  say "::group::" + shift;
+  say "::group::" . shift;
 }
 
 sub end_group {

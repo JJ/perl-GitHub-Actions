@@ -50,4 +50,11 @@ sub setting_warning_on_file {
 }
 stdout_is(\&setting_warning_on_file,"::warning file=foo.pl,line=1,col=1::FOO\n", "Sets warning with FOO value" );
 
+sub setting_group {
+  start_group( "foo");
+  warning("bar");
+  end_group;
+}
+stdout_is(\&setting_group,"::group::foo\n::warning::bar\n::endgroup::\n", "Opens and closes a group" );
+
 done_testing;
