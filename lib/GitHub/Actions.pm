@@ -9,6 +9,7 @@ use v5.14;
 
 # Module implementation here
 our %github;
+our $EXIT_CODE = 0;
 
 our @EXPORT = qw( %github set_output set_env debug error warning set_failed command_on_file error_on_file warning_on_file start_group end_group);
 
@@ -44,6 +45,7 @@ sub debug {
 
 sub error {
   my $error_message = shift;
+  $EXIT_CODE = 1;
   say "::error::$error_message"
 }
 
@@ -85,6 +87,10 @@ sub end_group {
 sub set_failed {
   error( @_ );
   exit( 1);
+}
+
+sub exit_action {
+  exit( $EXIT_CODE );
 }
 
 "Action!"; # Magic true value required at end of module
@@ -185,11 +191,16 @@ Exits with an error status of 1 after setting the error message.
 
 =head2 start_group( $group_name )
 
-Starts a group in the logs, grouping the following messages. Corresponds to L<C<group>|https://docs.github.com/en/actions/reference/workflow-commands-for-github-actions#grouping-log-lines>.
+Starts a group in the logs, grouping the following messages. Corresponds to
+L<C<group>|https://docs.github.com/en/actions/reference/workflow-commands-for-github-actions#grouping-log-lines>.
 
 =head2 end_group
 
 Ends current log grouping.
+
+=head2 exit_action
+
+Exits with the exit code generated during run
 
 =head1 CONFIGURATION AND ENVIRONMENT
 
