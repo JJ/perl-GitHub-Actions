@@ -111,7 +111,7 @@ This document describes GitHub::Actions version 0.1.1.1
     use GitHub::Actions;
     use v5.14;
 
-    # %github contains all GITHUB_* environment variables
+    # Imported %github contains all GITHUB_* environment variables
     for my $g (keys %github ) {
        say "GITHUB_$g -> ", $github{$g}
     }
@@ -123,10 +123,22 @@ This document describes GitHub::Actions version 0.1.1.1
     set_env("FOO", "BAR");
 
     # Produces an error and sets exit code to 1
-    error( "FOO has happened" )
+    error( "FOO has happened" );
+
+    # Debugging messages and warnings
+    debug( "Value of FOO is $bar" );
+    warning( "Value of FOO is $bar" );
+
+    # Start and end group
+    start_group( "Foo" );
+    # do stuff
+    end_group;
 
     # Exits with error if that's the case
     exit_action();
+
+    # Errors and exits
+    set_failed( "We're doomed" );
 
 Install this module within a GitHub action
 
