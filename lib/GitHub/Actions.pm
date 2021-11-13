@@ -11,7 +11,11 @@ use v5.14;
 our %github;
 our $EXIT_CODE = 0;
 
-our @EXPORT = qw( %github set_output set_env debug error warning set_failed command_on_file error_on_file warning_on_file start_group end_group exit_action);
+our @EXPORT = qw(
+                  %github set_output set_env debug error warning
+                  set_failed error_on_file warning_on_file
+                  start_group end_group exit_action
+               );
 
 BEGIN {
   for my $k ( keys(%ENV) ) {
@@ -124,6 +128,10 @@ This document describes GitHub::Actions version 0.1.1.1
 
     # Produces an error and sets exit code to 1
     error( "FOO has happened" );
+
+    # Error/warning with information on file
+    error_on_file( "There's foo", $file, $line, $col );
+    warning_on_file( "There's bar", $file, $line, $col );
 
     # Debugging messages and warnings
     debug( "Value of FOO is $bar" );

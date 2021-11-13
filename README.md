@@ -1,6 +1,7 @@
 # GitHub::Actions [![Checks the github action using itself](https://github.com/JJ/perl-GitHub-Actions/actions/workflows/self-test.yml/badge.svg)](https://github.com/JJ/perl-GitHub-Actions/actions/workflows/self-test.yml)
 
-Use GitHub Actions commands directly from Perl.
+Use GitHub Actions workflow commands directly from Perl, generally using the
+system Perl included in the runner.
 
 ## INSTALLATION
 
@@ -14,7 +15,7 @@ To install this module, run the following commands:
 
 ## DEPENDENCIES
 
-None.
+None (intentionally).
 
 
 ## HOW TO
