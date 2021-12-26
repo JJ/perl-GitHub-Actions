@@ -51,7 +51,7 @@ and then, within a step:
 
 > Remember that Perl is installed, by default, in Linux GitHub runners
 
-Remember that this distribution has been created for use with the *system* Perl, so generally you will have to write `sudo cpan GitHub::Actions` in a prior step. Once it's been installed, this will work:
+Remember this distribution has been created for use with the *system* Perl, so generally you will have to write `sudo cpan GitHub::Actions` in a prior step. Once it's been installed, this will work:
 
 ```yaml
 	  - name: Test set_failed
