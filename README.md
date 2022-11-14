@@ -45,7 +45,7 @@ chmod +x dist/warning
 and then, within a step:
 
 ```yaml
- 	  - name: Test set_failed
+      - name: Test set_failed
         run: dist/warning
 ```
 
