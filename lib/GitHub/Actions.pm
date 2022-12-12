@@ -31,7 +31,7 @@ use version; our $VERSION = qv('0.1.1.1');
 sub set_output {
   carp "Need name and value" unless @_;
   my ($output_name, $output_value) = @_;
-  $output_value ||='';
+  $output_value ||=1;
   open(my $fh, '>>', $github{'OUTPUT'}) or die "Could not open file ". $github{'OUTPUT'} ." $!";
   say $fh "$output_name=$output_value";
   close $fh;
@@ -39,6 +39,7 @@ sub set_output {
 
 sub set_env {
   my ($env_var_name, $env_var_value) = @_;
+  $env_var_value ||='1';
   open(my $fh, '>>', $github{'ENV'}) or die "Could not open file ". $github{'ENV'} ." $!";
   say $fh "$env_var_name=$env_var_value";
   close $fh;
