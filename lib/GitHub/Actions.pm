@@ -28,21 +28,24 @@ BEGIN {
 
 use version; our $VERSION = qv('0.1.1.1');
 
+sub _write_to_github_file {
+  my ($github_var, $content) = @_;
+  open(my $fh, '>>', $github{$github_var}) or die "Could not open file ". $github{$github_var} ." $!";
+  say $fh $content;
+  close $fh;
+}
+
 sub set_output {
   carp "Need name and value" unless @_;
   my ($output_name, $output_value) = @_;
   $output_value ||=1;
-  open(my $fh, '>>', $github{'OUTPUT'}) or die "Could not open file ". $github{'OUTPUT'} ." $!";
-  say $fh "$output_name=$output_value";
-  close $fh;
+  _write_to_github_file( 'OUTPUT', "$output_name=$output_value" );
 }
 
 sub set_env {
   my ($env_var_name, $env_var_value) = @_;
   $env_var_value ||='1';
-  open(my $fh, '>>', $github{'ENV'}) or die "Could not open file ". $github{'ENV'} ." $!";
-  say $fh "$env_var_name=$env_var_value";
-  close $fh;
+  _write_to_github_file( 'ENV', "$env_var_name=$env_var_value" );
 }
 
 sub debug {
