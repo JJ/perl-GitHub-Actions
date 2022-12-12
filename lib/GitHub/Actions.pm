@@ -12,7 +12,7 @@ our %github;
 our $EXIT_CODE = 0;
 
 our @EXPORT = qw(
-                  %github set_output set_env debug error warning
+                  %github $EXIT_CODE set_output set_env debug error warning
                   set_failed error_on_file warning_on_file
                   start_group end_group exit_action
                );
