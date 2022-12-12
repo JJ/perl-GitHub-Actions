@@ -107,15 +107,19 @@ __END__
 
 =head1 NAME
 
-GitHub::Actions - Work in GitHub Actions using Perl
+GitHub::Actions - Work in GitHub Actions using native Perl
 
 
 =head1 VERSION
 
-This document describes GitHub::Actions version 0.1.1.1
+This document describes GitHub::Actions version 0.1.2
 
 
 =head1 SYNOPSIS
+
+This will be in the context of oa GitHub actions step. You will need to install
+via CPAN this module first, and use C<perl {0}> as C<shell>. Please see below
+this code for instructions.
 
     use GitHub::Actions;
     use v5.14;
@@ -253,16 +257,17 @@ during the C<BEGIN> phase to be available when this module loads.
       $ENV{'GITHUB_BAR'} = 'bar';
     }
 
+You can use this for testing, for instance, if you create any module based on
+this one
 
 =head1 DEPENDENCIES
 
-Intentionally, no dependencies are included.
-
+Intentionally, no dependencies are included. Several dependencies are used for
+testing, though.
 
 =head1 INCOMPATIBILITIES
 
 None reported.
-
 
 =head1 BUGS AND LIMITATIONS
 
@@ -278,7 +283,8 @@ JJ Merelo  C<< <jmerelo@CPAN.org> >>. Many thanks to RENEEB and Gabor Szabo for 
 
 =head1 LICENCE AND COPYRIGHT
 
-Copyright (c) 2021, JJ Merelo C<< <jmerelo@CPAN.org> >>. All rights reserved.
+Copyright (c) 2021, 2022 JJ Merelo C<< <jmerelo@CPAN.org> >>. All rights
+reserved.
 
 This module is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself. See L<perlartistic>.
