@@ -3,7 +3,7 @@ package GitHub::Actions;
 use Exporter 'import'; # needed to use @EXPORT
 use warnings;
 use strict;
-use Carp;
+use Carp qw(croak);
 
 use v5.14;
 
@@ -36,7 +36,7 @@ sub _write_to_github_file {
 }
 
 sub set_output {
-  carp "Need name and value" unless @_;
+  croak "Need name and value" unless @_;
   my ($output_name, $output_value) = @_;
   $output_value ||=1;
   _write_to_github_file( 'OUTPUT', "$output_name=$output_value" );
@@ -75,14 +75,13 @@ sub warning_on_file {
 sub command_on_file {
   my $command = shift;
   my $message = shift;
+  croak "Need at least a file name" unless @_;
   my ($file, $line, $col ) = @_;
-  if ( $file ) {
-    my @data;
-    push( @data, "file=$file");
-    push( @data, "line=$line") if $line;
-    push( @data, "col=$col") if $col;
-    $command .= " ".join(",", @data );
-  }
+  my @data;
+  push( @data, "file=$file");
+  push( @data, "line=$line") if $line;
+  push( @data, "col=$col") if $col;
+  $command .= " ".join(",", @data );
   say $command."::$message"
 }
 

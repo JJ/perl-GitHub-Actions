@@ -45,4 +45,7 @@ sub setting_group {
 }
 stdout_is(\&setting_group,"::group::foo\n::warning::bar\n::endgroup::\n", "Opens and closes a group" );
 
+eval{ error_on_file( "Won't work" ) };
+like( $@, qr/Need/, "error_on_file fails without file" );
+
 done_testing;
