@@ -6,10 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Prepare for tests
         run: |
-          sudo apt-get install libtest-perl-critic-perl libtest-output-perl libtest-pod-coverage-perl
+          sudo apt-get install libtest-perl-critic-perl libtest-output-perl libtest-pod-coverage-perl libtest-file-contents-perl
           perl Makefile.PL
           make
       - name: Perform tests
