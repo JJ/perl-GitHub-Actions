@@ -32,7 +32,9 @@ sub set_output {
   carp "Need name and value" unless @_;
   my ($output_name, $output_value) = @_;
   $output_value ||='';
-  say "::set-output name=$output_name\::$output_value";
+  open(my $fh, '>>', $github{'OUTPUT'}) or die "Could not open file ". $github{'OUTPUT'} ." $!";
+  say $fh "$output_name=$output_value";
+  close $fh;
 }
 
 sub set_env {
