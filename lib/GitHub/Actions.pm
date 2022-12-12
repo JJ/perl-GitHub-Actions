@@ -26,7 +26,7 @@ BEGIN {
   }
 }
 
-use version; our $VERSION = qv('0.1.1.1');
+use version; our $VERSION = qv('0.1.2');
 
 sub _write_to_github_file {
   my ($github_var, $content) = @_;
