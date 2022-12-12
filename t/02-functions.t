@@ -33,6 +33,11 @@ sub setting_warning_on_file {
 }
 stdout_is(\&setting_warning_on_file,"::warning file=foo.pl,line=1,col=1::FOO\n", "Sets warning with FOO value" );
 
+sub setting_warning_on_file_nolines {
+  warning_on_file('FOO', 'foo.pl' );
+}
+stdout_is(\&setting_warning_on_file_nolines,"::warning file=foo.pl::FOO\n", "Sets warning on file" );
+
 sub setting_group {
   start_group( "foo");
   warning("bar");
