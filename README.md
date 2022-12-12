@@ -23,7 +23,7 @@ After installation, use `perldoc GitHub::Actions` for the commands available
 (generally a camel_cased version of the corresponding GitHub Action commands).
 
 If you want to use this inside a GitHub action, you will have to use fatpack to
-create a single command. For instance, 
+create a single command. For instance,
 
 ```perl
 #!/usr/bin/env perl
@@ -51,7 +51,7 @@ and then, within a step:
 
 > Remember that Perl is installed, by default, in Linux GitHub runners
 
-Remember this distribution has been created for use with the *system* Perl, so generally you will have to write `sudo cpan GitHub::Actions` in a prior step. Once it's been installed, this will work:
+This distribution has been created for use with the *system* Perl, so generally you will have to write `sudo cpan GitHub::Actions` in a prior step. Once it's been installed, this will work:
 
 ```yaml
 	  - name: Test set_failed
@@ -64,7 +64,7 @@ Remember this distribution has been created for use with the *system* Perl, so g
 
 ## COPYRIGHT AND LICENCE
 
-Copyright (C) 2021, JJ Merelo
+Copyright (C) 2021, 2022 JJ Merelo
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
