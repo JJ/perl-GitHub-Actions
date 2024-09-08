@@ -157,14 +157,14 @@ this code for instructions.
     # Errors and exits
     set_failed( "We're doomed" );
 
-Install this module within a GitHub action
+Install this module within a GitHub action, as a C<step>
 
-      . name: "Install GitHub::Actions"
+      - name: "Install GitHub::Actions"
         run: sudo cpan GitHub::Actions
 
-(we need C<sudo> since we're using the system Perl)
+(we need C<sudo> since we're using the system Perl that's installed in every runner)
 
-You can use this as a C<step>
+Then, as another C<step>
 
       - name: Test env variables
         shell: perl {0}
@@ -172,22 +172,23 @@ You can use this as a C<step>
           use GitHub::Actions;
           set_env( 'FOO', 'BAR');
 
-In most cases, you'll want to just have it installed locally and fatpack it to
-upload it to the repository.
+In most cases, you'll want to just have it installed locally in your repository
+and C<fatpack> it in a script that you will upload it to the repository.
 
 =head1 DESCRIPTION
 
 GitHub Actions include by default, at least in its Linux runners, a
-system Perl which you can use directly in your GitHub actions. This here is
+system Perl which you can use directly in them. This here is
 a (for the time being) minimalistic module that tries to help a bit
 with that, by defining a few functions that will be useful when
 performing GitHub actions. Besides the system Perl, you can use any of
 L<the modules
 installed|https://gist.github.com/JJ/edf3a39d68525439978da2a02763d42b>. You
 can install other modules via cpan or, preferably for speed, via the
-Ubuntu package (or equivalent)
+Ubuntu package (or equivalent).
 
-Check out an example of using it in the L<repository|https://github.com/JJ/perl-GitHub-Actions/blob/main/.github/workflows/self-test.yml>
+Check out an example of using it in the
+L<repository|https://github.com/JJ/perl-GitHub-Actions/blob/main/.github/workflows/self-test.yml>.
 
 =head1 INTERFACE
 
@@ -258,7 +259,7 @@ during the C<BEGIN> phase to be available when this module loads.
     }
 
 You can use this for testing, for instance, if you create any module based on
-this one
+this one.
 
 =head1 DEPENDENCIES
 
