@@ -1,4 +1,4 @@
-name: "Checks the github action using itself"
+name: "Checks the module using itself"
 on: [push,pull_request]
 
 jobs:
