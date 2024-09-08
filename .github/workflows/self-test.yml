@@ -43,15 +43,6 @@ jobs:
           else
              exit 1
           fi
-      - name: Save last GitHub action ID
-        run: echo $GITHUB_ACTION > last_github_action_id
-
-      - name: Pushes changed file
-        env:
-          USER_NAME: PerlGHBot
-          EMAIL: jjmerelo@gmail.com
-          MY_COMMIT_MSG: Updates GH id file
-        run: bin/commit-push.pl
 
       - name: Test set_failed
         shell: perl {0}
