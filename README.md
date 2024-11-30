@@ -58,7 +58,7 @@ you will have to write `sudo cpan GitHub::Actions` in a prior step. Once it's
 been installed, this will work:
 
 ```yaml
-	  - name: Test set_failed
+      - name: Test set_failed
         shell: perl {0}
         run: |
           use GitHub::Actions;
