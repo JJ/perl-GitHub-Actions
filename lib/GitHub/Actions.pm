@@ -143,9 +143,9 @@ this code for instructions.
     # Produces an error and sets exit code to 1
     error( "FOO has happened" );
 
-    # Error/warning with information on file
-    error_on_file( "There's foo", $file, $line, $col );
-    warning_on_file( "There's bar", $file, $line, $col );
+    # Error/warning with information on file. The last 3 parameters are optional
+    error_on_file( "There's foo", $file, $line, $title, $col );
+    warning_on_file( "There's bar", $file, $line, $title, $col );
 
     # Debugging messages and warnings
     debug( "Value of FOO is $bar" );
