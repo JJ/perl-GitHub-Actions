@@ -23,20 +23,30 @@ sub setting_warning {
 
 stdout_is(\&setting_warning,"::warning::FOO\n", "Sets warning with FOO value" );
 
-sub setting_error_on_file {
-  error_on_file('FOO', 'foo.pl', 1,1 );
+sub setting_error_on_file_no_title {
+  error_on_file('FOO', 'foo.pl', 1 );
 }
-stdout_is(\&setting_error_on_file,"::error file=foo.pl,line=1,col=1::FOO\n", "Sets error with FOO value" );
+stdout_is(\&setting_error_on_file_no_title,"::error file=foo.pl,line=1,title=ERROR::FOO\n", "Sets error with FOO value" );
+
+sub setting_error_on_file {
+  error_on_file('FOO', 'foo.pl', 1, "ERROR" );
+}
+stdout_is(\&setting_error_on_file,"::error file=foo.pl,line=1,title=ERROR::FOO\n", "Sets error with FOO value" );
+
+sub setting_error_on_file_with_col {
+  error_on_file('FOO', 'foo.pl', 1, "ERROR",1 );
+}
+stdout_is(\&setting_error_on_file_with_col,"::error file=foo.pl,line=1,title=ERROR::FOO,col=1\n", "Sets error with FOO value" );
 
 sub setting_warning_on_file {
-  warning_on_file('FOO', 'foo.pl', 1,1 );
+  warning_on_file('FOO', 'foo.pl', 1,"WARNING",1 );
 }
-stdout_is(\&setting_warning_on_file,"::warning file=foo.pl,line=1,col=1::FOO\n", "Sets warning with FOO value" );
+stdout_is(\&setting_warning_on_file,"::warning file=foo.pl,line=1,title=WARNING::FOO,col=1\n", "Sets warning with FOO value" );
 
 sub setting_warning_on_file_nolines {
-  warning_on_file('FOO', 'foo.pl' );
+  warning_on_file('FOO', 'foo.pl');
 }
-stdout_is(\&setting_warning_on_file_nolines,"::warning file=foo.pl::FOO\n", "Sets warning on file" );
+stdout_is(\&setting_warning_on_file_nolines,"::warning file=foo.pl,title=WARNING::FOO\n", "Sets warning on file" );
 
 sub setting_group {
   start_group( "foo");

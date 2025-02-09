@@ -76,13 +76,18 @@ sub command_on_file {
   my $command = shift;
   my $message = shift;
   croak "Need at least a file name" unless @_;
-  my ($file, $line, $col ) = @_;
+  my ($file, $line, $title, $col ) = @_;
   my @data;
   push( @data, "file=$file");
   push( @data, "line=$line") if $line;
+  if ( $title ) {
+    push( @data, "title=$title"."::$message");
+  } else {
+    push( @data, "title=".uc(substr($command,2))."::$message");
+  }
   push( @data, "col=$col") if $col;
   $command .= " ".join(",", @data );
-  say $command."::$message"
+  say $command;
 }
 
 sub start_group {
