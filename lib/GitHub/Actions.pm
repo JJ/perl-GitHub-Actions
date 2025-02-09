@@ -117,7 +117,7 @@ GitHub::Actions - Work in GitHub Actions using native Perl
 
 =head1 VERSION
 
-This document describes GitHub::Actions version 0.1.2
+This document describes GitHub::Actions version 0.2.0
 
 
 =head1 SYNOPSIS
