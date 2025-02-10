@@ -121,8 +121,7 @@ GitHub::Actions - Work in GitHub Actions using native Perl
 
 =head1 VERSION
 
-This document describes GitHub::Actions version 0.2.0
-
+This document describes GitHub::Actions version 0.2.1
 
 =head1 SYNOPSIS
 
@@ -153,8 +152,8 @@ this code for instructions.
     error( "FOO has happened" );
 
     # Error/warning with information on file. The last 3 parameters are optional
-    error_on_file( "There's foo", $file, $line, $title, $col );
-    warning_on_file( "There's bar", $file, $line, $title, $col );
+    error_on_file( "There's foo", $file, $line, "Error", $col );
+    warning_on_file( "There's bar", $file, $line, "Warning", $col );
 
     # Debugging messages and warnings
     debug( "Value of FOO is $bar" );
