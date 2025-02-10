@@ -24,8 +24,10 @@ BEGIN {
       $github{$nogithub} = $ENV{$k} ;
     }
   }
-  my @repo_parts = split("/", $ENV{'GITHUB_REPOSITORY'});
-  $github{'REPO_NAME'} = pop @repo_parts;
+  if ($ENV{'GITHUB_REPOSITORY'}) {
+    my @repo_parts = split("/", $ENV{'GITHUB_REPOSITORY'});
+    $github{'REPO_NAME'} = pop @repo_parts;
+  }
 }
 
 use version; our $VERSION = qv('0.2.1');
