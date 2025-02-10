@@ -30,6 +30,17 @@ BEGIN {
   }
 }
 
+=head1 NAME
+
+GitHub::Actions - Work in GitHub Actions using native Perl
+
+
+=head1 VERSION
+
+This document describes GitHub::Actions version 0.2.1
+
+=cut
+
 use version; our $VERSION = qv('0.2.1');
 
 sub _write_to_github_file {
@@ -114,14 +125,6 @@ sub exit_action {
 "Action!"; # Magic true value required at end of module
 __END__
 
-=head1 NAME
-
-GitHub::Actions - Work in GitHub Actions using native Perl
-
-
-=head1 VERSION
-
-This document describes GitHub::Actions version 0.2.1
 
 =head1 SYNOPSIS
 
@@ -288,7 +291,6 @@ None reported.
 No bugs have been reported.
 
 Please report any bugs or feature requests to L<https://github.com/JJ/perl-GitHub-Actions/issues>.
-
 
 =head1 AUTHOR
 
