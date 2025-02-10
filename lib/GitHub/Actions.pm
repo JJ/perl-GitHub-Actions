@@ -128,7 +128,7 @@ __END__
 
 =head1 SYNOPSIS
 
-This will be in the context of oa GitHub actions step. You will need to install
+This will be in the context of a GitHub action step. You will need to install
 via CPAN this module first, and use C<perl {0}> as C<shell>. Please see below
 this code for instructions.
 
