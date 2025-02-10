@@ -136,6 +136,11 @@ this code for instructions.
        say "GITHUB_$g -> ", $github{$g}
     }
 
+    # The name of the repository itself, without the name part, is stored in a new variable
+    say $github{'REPO_NAME'};
+
+    # These are commands that mirror those in GitHub actions
+
     # Set step output
     set_output("FOO", "BAR");
 
