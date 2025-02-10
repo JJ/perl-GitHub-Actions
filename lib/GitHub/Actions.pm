@@ -28,7 +28,7 @@ BEGIN {
   $github{'REPO_NAME'} = pop @repo_parts;
 }
 
-use version; our $VERSION = qv('0.2.0');
+use version; our $VERSION = qv('0.2.1');
 
 sub _write_to_github_file {
   my ($github_var, $content) = @_;
