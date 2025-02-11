@@ -80,6 +80,7 @@ sub warning {
 }
 
 sub error_on_file {
+  $EXIT_CODE= 1;
   command_on_file( "::error", @_ );
 }
 
