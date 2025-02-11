@@ -156,7 +156,7 @@ this code for instructions.
     error( "FOO has happened" );
 
     # Error/warning with information on file. The last 3 parameters are optional
-    error_on_file( "There's foo", $file, $line, "Error", $col );
+    error_on_file( "There's foo", $file, $line, "Error", $col ); #  and sets exit code to 1
     warning_on_file( "There's bar", $file, $line, "Warning", $col );
 
     # Debugging messages and warnings
@@ -243,7 +243,10 @@ Common code for L<error_on_file> and L<warning_on_file>. Can be used for any fut
 
 =head2 error_on_file( $error_message, $file, $line, $title, $col )
 
-Equivalent to L<C<error>|https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-commands-for-github-actions#setting-an-error-message>, prints an error message with file and line info
+Equivalent to
+L<C<error>|https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-commands-for-github-actions#setting-an-error-message>,
+prints an error message with file and line info. Also set the exit status to 1,
+so once again remember to call C<exit_action> after calling this.
 
 =head2 warning_on_file( $warning_message, $file, $line, $title, $col )
 
