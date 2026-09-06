@@ -122,6 +122,11 @@ sub exit_action {
   exit( $EXIT_CODE );
 }
 
+sub add_to_job_summary {
+  my $message = shift;
+  _write_to_github_file( STEP_SUMMARY, "$message\n" );
+}
+
 "Action!"; # Magic true value required at end of module
 __END__
 
@@ -166,6 +171,11 @@ this code for instructions.
     start_group( "Foo" );
     # do stuff
     end_group;
+
+    # Write to job summary
+    add_to_job_summary( "All's well" );
+    # Remember this is markdown
+    add_to_job_summary( "# Job summary\n\nAll went **well**");
 
     # Exits with error if that's the case
     exit_action();
