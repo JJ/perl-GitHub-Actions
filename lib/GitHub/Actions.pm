@@ -282,6 +282,7 @@ error reported.
 =head2 add_to_job_summary
 
 Adds a single line to the job summary. Job (or step) summaries use Markdown to show information on the workflow page that is easier to find and understand.
+Please remember that job summaries are composed of consecutive step summaries, which are all collated together when the workflow finishes. This introduces blank lines in steps with not step summary, which might break some markdown like tables.
 
 =head1 CONFIGURATION AND ENVIRONMENT
 
