@@ -28,9 +28,6 @@ jobs:
         shell: perl {0}
         run: |
           use GitHub::Actions;
-          add_to_job_summary("# Self-test summary" );
-          add_to_job_summary("| Test | Result |" );
-          add_to_job_summary("| ---- | ------ |" );
           set_env( 'FOO', 'BAR');
       - name: Check test result
         run: |
@@ -44,7 +41,6 @@ jobs:
         shell: perl {0}
         run:
           use GitHub::Actions;
-          add_to_job_summary("| set_env | ♗ |" );
           set_output( 'FOO', 'BAR');
       - name: Check test result
         env:
@@ -55,12 +51,15 @@ jobs:
           else
              exit 1
           fi
-
-      - name: Test set_failed
+      - name: Test set_failed and job summary
         shell: perl {0}
         run: |
           use GitHub::Actions;
+          add_to_job_summary("# Self-test summary" );
+          add_to_job_summary("| Test | Result |" );
+          add_to_job_summary("| ---- | ------ |" );
           add_to_job_summary("| set_env | ♗ |" );
           system(".github/workflows/set_failed.pl");
           set_output( "Exit code is $?" );
           add_to_job_summary("| set_output | ♗ |" );
+          add_to_job_summary("| set_failed | ♗ |" );
