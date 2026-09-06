@@ -279,6 +279,10 @@ Ends current log grouping.
 Exits with the exit code generated during run, that is, 1 if there's been any
 error reported.
 
+=head2 add_to_job_summary
+
+Adds a single line to the job summary. Job (or step) summaries use Markdown to show information on the workflow page that is easier to find and understand.
+
 =head1 CONFIGURATION AND ENVIRONMENT
 
 GitHub::Actions requires no configuration files or environment
