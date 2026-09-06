@@ -14,7 +14,7 @@ our $EXIT_CODE = 0;
 our @EXPORT = qw(
                   %github $EXIT_CODE set_output set_env debug error warning
                   set_failed error_on_file warning_on_file
-                  start_group end_group exit_action
+                  start_group end_group exit_action add_to_job_summary
                );
 
 BEGIN {
@@ -124,7 +124,7 @@ sub exit_action {
 
 sub add_to_job_summary {
   my $message = shift;
-  _write_to_github_file( STEP_SUMMARY, "$message\n" );
+  _write_to_github_file( 'STEP_SUMMARY', "$message\n" );
 }
 
 "Action!"; # Magic true value required at end of module
