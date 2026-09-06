@@ -30,7 +30,7 @@ jobs:
           use GitHub::Actions;
           add_to_job_summary("# Self-test summary" );
           add_to_job_summary("| Test | Result |" );
-          add_to_job_summary("|------|--------|" );
+          add_to_job_summary("| ---- | ------ |" );
           set_env( 'FOO', 'BAR');
       - name: Check test result
         run: |
