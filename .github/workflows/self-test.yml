@@ -44,7 +44,7 @@ jobs:
         shell: perl {0}
         run:
           use GitHub::Actions;
-          add_to_job_summary("| set_env | ♗" );
+          add_to_job_summary("| set_env | ♗ |" );
           set_output( 'FOO', 'BAR');
       - name: Check test result
         env:
@@ -60,7 +60,7 @@ jobs:
         shell: perl {0}
         run: |
           use GitHub::Actions;
-          add_to_job_summary("| set_env | ♗" );
+          add_to_job_summary("| set_env | ♗ |" );
           system(".github/workflows/set_failed.pl");
           set_output( "Exit code is $?" );
-          add_to_job_summary("| set_output | ♗" );
+          add_to_job_summary("| set_output | ♗ |" );
