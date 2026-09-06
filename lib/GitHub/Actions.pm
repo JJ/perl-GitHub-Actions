@@ -36,11 +36,11 @@ GitHub::Actions - Work in GitHub Actions using native Perl
 
 =head1 VERSION
 
-This document describes GitHub::Actions version 0.2.2
+This document describes GitHub::Actions version 0.3.0
 
 =cut
 
-use version; our $VERSION = qv('0.2.2');
+use version; our $VERSION = qv('0.3.0');
 
 sub _write_to_github_file {
   my ($github_var, $content) = @_;
